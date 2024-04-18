@@ -1,27 +1,14 @@
 import fastify from "fastify"
-import crypto from "node:crypto"
-import { knex } from "./database"
+// import crypto from "node:crypto"
+import { transactionsRoutes } from "./routes/transactions"
+import { env } from "./env"
 
 const app = fastify()
 
-app.get("/", async (req, res) => {
-  // const data = await knex("sqlite_schema").select("*")
-
-  // const transaction = await knex("transactions")
-  //   .insert({
-  //     id: crypto.randomUUID(),
-  //     title: "Transação Teste",
-  //     amount: 1000,
-  //   })
-  //   .returning("*")
-
-  const transactions = await knex("transactions")
-    .where("amount", ">", 900)
-    .select("*")
-
-  return res.send(transactions)
+app.register(transactionsRoutes, {
+  prefix: "transactions",
 })
 
-app.listen({ port: 3000 }, () => {
+app.listen({ port: env.PORT }, () => {
   console.log(`Server running!`)
 })
