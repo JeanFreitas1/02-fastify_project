@@ -8,7 +8,7 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc ./src/server.ts --outDir ./dist",
     "lint": "eslint src --ext .ts --fix",
-    "knex": "node --import tsx ./node_modules/.bin/knex"
+    "knex": "node --no-warnings --import tsx ./node_modules/.bin/knex"
   },
   "keywords": [],
   "author": "",
