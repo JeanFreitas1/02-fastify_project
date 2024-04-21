@@ -2,11 +2,10 @@
   "name": "02-project2",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsc ./src/server.ts --outDir ./dist",
+    "build": "tsup src",
     "lint": "eslint src --ext .ts --fix",
     "knex": "node --no-warnings --import tsx ./node_modules/.bin/knex",
     "test": "vitest"
@@ -20,6 +19,7 @@
     "@types/supertest": "^6.0.2",
     "eslint": "^8.33.0",
     "supertest": "^6.3.4",
+    "tsup": "^8.0.2",
     "tsx": "^4.7.2",
     "typescript": "^5.4.5",
     "vitest": "^1.5.0"
